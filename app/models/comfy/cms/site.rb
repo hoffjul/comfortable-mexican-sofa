@@ -9,7 +9,11 @@ class Comfy::Cms::Site < ActiveRecord::Base
     site.has_many :files
     site.has_many :categories
   end
-
+  
+  # csat changes
+  has_many :contents, as: :asset, dependent: :destroy
+  accepts_nested_attributes_for :contents, :allow_destroy => true
+  
   # -- Callbacks ------------------------------------------------------------
   before_validation :assign_identifier,
                     :assign_hostname,

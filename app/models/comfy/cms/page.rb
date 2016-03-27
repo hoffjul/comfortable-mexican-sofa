@@ -14,7 +14,11 @@ class Comfy::Cms::Page < ActiveRecord::Base
   belongs_to :layout
   belongs_to :target_page,
     :class_name => 'Comfy::Cms::Page'
-
+  
+  # csat changes
+  has_many :contents, as: :asset, dependent: :destroy
+  accepts_nested_attributes_for :contents, :allow_destroy => true
+  
   # -- Callbacks ------------------------------------------------------------
   before_validation :assigns_label,
                     :assign_parent,

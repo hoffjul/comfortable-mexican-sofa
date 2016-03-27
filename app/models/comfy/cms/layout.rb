@@ -11,6 +11,11 @@ class Comfy::Cms::Layout < ActiveRecord::Base
   belongs_to :site
   has_many :pages, :dependent => :nullify
   
+  # csat changes
+  has_many :contents, as: :asset, dependent: :destroy
+  accepts_nested_attributes_for :contents, :allow_destroy => true
+  
+  
   # -- Callbacks ------------------------------------------------------------
   before_validation :assign_label
   before_create :assign_position

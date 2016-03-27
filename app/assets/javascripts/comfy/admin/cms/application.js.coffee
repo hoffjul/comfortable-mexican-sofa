@@ -1,7 +1,7 @@
 #= require jquery
 #= require jquery_ujs
 #= require jquery-ui
-#= require codemirror
+# = require codemirror
 #= require codemirror/modes/css
 #= require codemirror/modes/htmlmixed
 #= require codemirror/modes/javascript
